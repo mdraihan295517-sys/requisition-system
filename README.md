@@ -18,5 +18,5 @@ Run requisition_system.py with Python. It makes 5 test requisitions and prints t
 
 I'd used GitHub for few times before this, so it was little bit new for me. I made 3 commits for the code: the class with __init__, the add and approve methods, and then the rest of the methods with the tests.
 
-My second commit failed the first time. Git said "no changes added to commit" because I hadn't saved the file or run git add. Once I did both, it went through.
+ I faced many issues, however my second commit failed the first time. Git said "no changes added to commit" because I hadn't saved the file or run git add. Once I did both, it went through.
 
