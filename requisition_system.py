@@ -45,12 +45,13 @@ class Requisition:
 
     #Respond to Requisition
     def respond_to_requisition(self, decision):
+        decision = decision.lower()
         if self.status == "Pending":
-            if decision == "Approved":
+            if decision == "approved":
                 self.status = "Approved"
                 last_three = str(self.requisition_id)[-3:]
                 self.approval_reference = self.staff_id + last_three
-            elif decision == "Not approved":
+            elif decision == "not approved":
                 self.status = "Not approved"
 
     #Task 3: Display Requisitions
