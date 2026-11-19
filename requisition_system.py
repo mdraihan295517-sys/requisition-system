@@ -1,6 +1,6 @@
-#Md Raihan - Student ID: 20260435
-#Purchase Requisition System Prototype - Part 2
-#Task 1: Requisition class
+#Md Raihan_Student iD:20260435
+#Purchase Requisition System Prototype -Part 2
+#Task 1: Requisition class-
 
 requisition_counter = 0
 all_requisitions = []
@@ -8,7 +8,7 @@ all_requisitions = []
 
 class Requisition:
 
-    #Task 1: Staff Info
+    #Task 1: Staff Info-
     def __init__(self, date, staff_id, staff_name):
         global requisition_counter
         requisition_counter += 1
@@ -26,16 +26,21 @@ class Requisition:
 
     #Add Requisition
     def add_requisition(self, items):
-        total = 0
-        for item in items:
-            total += item["price"]
         self.items = items
-        self.total = total
+        self.total = self.requisitions_details()
+        return self.total
+
+    #Requisitions Details-
+    def requisitions_details(self):
+        total = 0
+        for item in self.items:
+            total += item["price"]
         return total
 
-    #Task 2: Requisition Approval
+    #Task 2: Requisition Approval-
     def approve_requisition(self):
-        if self.total < 500:
+        total = self.requisitions_details()
+        if total < 500:
             self.status = "Approved"
             last_three = str(self.requisition_id)[-3:]
             self.approval_reference = self.staff_id + last_three
@@ -43,7 +48,7 @@ class Requisition:
             self.status = "Pending"
             self.approval_reference = ""
 
-    #Respond to Requisition
+    #Respond to Requisition-
     def respond_to_requisition(self, decision):
         decision = decision.lower()
         if self.status == "Pending":
@@ -54,7 +59,7 @@ class Requisition:
             elif decision == "not approved":
                 self.status = "Not approved"
 
-    #Task 3: Display Requisitions
+    #Task 3: Display Requisitions-
     def display_requisitions(self):
         for r in all_requisitions:
             print("Date:", r.date)
@@ -72,7 +77,7 @@ class Requisition:
                 print("Approval Reference Number: Not available")
             print()
 
-    #Requisition Statistics
+    #Requisition Statistics-
     def requisition_statistics(self):
         approved = 0
         pending = 0
@@ -92,7 +97,7 @@ class Requisition:
         print("The total number of not approved requisitions:", not_approved)
 
 
-#Staff Info input
+#Staff Info input-
 def enter_requisition():
     print("Enter your information:")
     date = input("Date: ")
@@ -121,7 +126,7 @@ def enter_requisition():
     return r
 
 
-#Testing
+# Here is my testing-
 r1 = Requisition("03/04/2024", "FN19", "John Paul")
 r1.add_requisition([{"name": "Keyboard", "price": 150}, {"name": "Monitor", "price": 300}])
 r1.approve_requisition()
